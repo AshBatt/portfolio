@@ -1,32 +1,42 @@
 [
   {
     "id": 1,
-    "title": "SpeedMaster",
-    "description": "An immersive solo and multiplayer speed typing game with real-time scoring and seamless navigation using routing.",
-    "techStack": ["MongoDB", "Express", "React", "Node.js", "JavaScript"],
-    "github": "https://github.com/AshBatt/SpeedMaster",
-    "demo": "https://github.com/AshBatt/SpeedMaster",
-    "image": "/images/projects/project1.jpg",
+    "title": "AI Codebase Assistant",
+    "description": "Built an AI-powered assistant indexing 70+ GitHub repositories and 8 Slack channels to enable semantic search across engineering knowledge sources. Designed a Retrieval-Augmented Generation (RAG) pipeline using OpenAI APIs and ChromaDB, with PR-triggered ingestion workflows to keep data up to date.",
+    "techStack": ["Python", "OpenAI", "ChromaDB", "RAG", "Vector Databases"],
+    "github": "",
+    "demo": "",
+    "image": "/images/projects/project4.jpg",
     "featured": true
   },
   {
     "id": 2,
-    "title": "CellScout",
-    "description": "Web scraping tool that helps find the perfect mobile phone within your desired price range using BeautifulSoup.",
-    "techStack": ["Python", "Flask", "BeautifulSoup", "HTML", "CSS"],
-    "github": "https://github.com/AshBatt/Cell-Scout",
-    "demo": "https://github.com/AshBatt/Cell-Scout",
-    "image": "/images/projects/project2.jpg",
+    "title": "SpeedMaster",
+    "description": "Developed a real-time solo and multiplayer typing game with dynamic scoring and smooth navigation. Built using MERN stack with efficient state management and responsive UI for seamless gameplay experience.",
+    "techStack": ["MongoDB", "Express", "React", "Node.js", "JavaScript"],
+    "github": "https://github.com/AshBatt/SpeedMaster",
+    "demo": "https://github.com/AshBatt/SpeedMaster",
+    "image": "/images/projects/project1.jpg",
     "featured": false
   },
   {
     "id": 3,
     "title": "YouTube Bookmarker Extension",
-    "description": "Chrome extension to save essential video moments with a single click and categorize bookmarks for quick retrieval.",
+    "description": "Built a Chrome extension to bookmark and organize important timestamps in YouTube videos, enabling quick navigation and improved content consumption through tagging and retrieval features.",
     "techStack": ["JavaScript", "HTML", "CSS", "Chrome APIs"],
     "github": "https://github.com/AshBatt/Youtube-Bookmarker-Extension",
     "demo": "https://github.com/AshBatt/Youtube-Bookmarker-Extension",
     "image": "/images/projects/project3.jpg",
+    "featured": false
+  },
+  {
+    "id": 4,
+    "title": "CellScout",
+    "description": "Developed a web scraping tool using BeautifulSoup to extract and filter mobile phone data based on price and specifications, enabling efficient comparison and decision-making.",
+    "techStack": ["Python", "Flask", "BeautifulSoup", "HTML", "CSS"],
+    "github": "https://github.com/AshBatt/Cell-Scout",
+    "demo": "https://github.com/AshBatt/Cell-Scout",
+    "image": "/images/projects/project2.jpg",
     "featured": false
   }
 ]

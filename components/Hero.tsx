@@ -46,10 +46,10 @@ export function Hero() {
             </Link>
           </Button>
           <Button size="lg" variant="outline" className="border-primary/20 hover:bg-primary/10 hover:text-primary rounded-full px-8" asChild>
-            <Link href="/resume.pdf" target="_blank" rel="noopener noreferrer" download>
+            <a href="/resume.pdf" download="Aashima_Batra_Resume.pdf">
               <Download className="mr-2 h-4 w-4" />
               Download Resume
-            </Link>
+            </a>
           </Button>
         </motion.div>
       </div>

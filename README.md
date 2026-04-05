@@ -149,8 +149,9 @@ Edit `app/globals.css` (lines 4-36) to modify the color scheme:
 ```
 
 ### Contact Form Setup
-1. Get a free API key from [web3forms.com](https://web3forms.com)
-2. Add it to `components/Contact.tsx` (line 22)
+1. Get a free access key from [web3forms.com](https://web3forms.com)
+2. Copy `.env.example` to `.env.local` and set `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY`
+3. For production (e.g. Vercel), add the same variable in the host’s environment settings
 
 ### Modify Section Order
 Edit `app/page.tsx` to rearrange sections.

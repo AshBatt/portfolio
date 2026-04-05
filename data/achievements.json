@@ -1,26 +1,26 @@
 [
   {
     "id": 1,
+    "icon": "trophy",
+    "title": "Employee of the Month",
+    "description": "Recognized as Employee of the Month (Dec 2024) at Celigo for high-impact engineering contributions, including feature delivery and resolution of critical customer-facing issues."
+  },
+  {
+    "id": 2,
     "title": "Code Gladiators 2023 by TechGig",
     "description": "Secured 83rd rank in the finale, outperforming over 3.15 lakh participants in one of India's largest coding competitions.",
     "icon": "trophy"
   },
   {
-    "id": 2,
+    "id": 3,
     "title": "Tally CodeBrewers Hackathon",
     "description": "Attained finalist recognition competing among over 12,000 participants in the hackathon organized by Tally Solutions.",
     "icon": "medal"
   },
   {
-    "id": 3,
+    "id": 4,
     "title": "Geek Goddess 2023 by TechGig",
     "description": "Secured 272nd rank in the finale, outperforming over 59,000 participants in this women-focused coding competition.",
     "icon": "trophy"
-  },
-  {
-    "id": 4,
-    "title": "Code Kaze Round 2",
-    "description": "Ranked 47th in college and 5321st globally among 1 lakh+ participants, showcasing strong competitive programming skills.",
-    "icon": "medal"
   }
 ]

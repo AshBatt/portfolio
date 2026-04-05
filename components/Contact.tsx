@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { motion } from "framer-motion"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
@@ -8,18 +8,35 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Label } from "@/components/ui/label"
 import { Send, CheckCircle2, AlertCircle, Download } from "lucide-react"
-import Link from "next/link"
-
 export function Contact() {
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle")
+  const [submitError, setSubmitError] = useState<string | null>(null)
+  const formRef = useRef<HTMLFormElement>(null)
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault()
+    setSubmitError(null)
+
+    const accessKey = process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY?.trim()
+    if (!accessKey) {
+      setStatus("error")
+      setSubmitError(
+        "Add NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY to .env.local (see .env.example)."
+      )
+      return
+    }
+
     setStatus("submitting")
 
-    const formData = new FormData(event.currentTarget)
-    // In a real app, you'd put your Web3Forms Access Key here
-    formData.append("access_key", "YOUR_ACCESS_KEY_HERE") 
+    const form = formRef.current
+    if (!form) {
+      setStatus("error")
+      setSubmitError("Could not access the form. Please refresh the page.")
+      return
+    }
+
+    const formData = new FormData(form)
+    formData.append("access_key", accessKey)
 
     try {
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -27,17 +44,25 @@ export function Contact() {
         body: formData,
       })
 
-      const data = await response.json()
+      const data = (await response.json()) as {
+        success?: boolean
+        message?: string
+      }
 
       if (data.success) {
         setStatus("success")
-        // Reset form
-        event.currentTarget.reset()
+        form.reset()
       } else {
         setStatus("error")
+        setSubmitError(
+          typeof data.message === "string"
+            ? data.message
+            : "Something went wrong. Please try again."
+        )
       }
-    } catch (error) { // Removed unused variable 'error' -> used in catch block but not accessed
+    } catch {
       setStatus("error")
+      setSubmitError("Network error. Please try again.")
     }
   }
 
@@ -68,7 +93,7 @@ export function Contact() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <form onSubmit={handleSubmit} className="space-y-4">
+              <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
                 <div className="space-y-2">
                   <Label htmlFor="name">Name</Label>
                   <Input id="name" name="name" placeholder="Your name" required className="bg-background/50" />
@@ -108,16 +133,21 @@ export function Contact() {
                     </span>
                   )}
                 </Button>
+                {submitError ? (
+                  <p className="text-sm text-destructive" role="alert">
+                    {submitError}
+                  </p>
+                ) : null}
               </form>
             </CardContent>
           </Card>
 
           <div className="flex justify-center">
             <Button variant="outline" className="rounded-full" asChild>
-              <Link href="/resume.pdf" target="_blank" download>
+              <a href="/resume.pdf" download="Aashima_Batra_Resume.pdf">
                 <Download className="mr-2 h-4 w-4" />
                 Download Resume
-              </Link>
+              </a>
             </Button>
           </div>
         </motion.div>

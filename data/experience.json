@@ -2,21 +2,31 @@
   {
     "id": 1,
     "company": "Celigo",
-    "role": "Software Engineer I",
+    "role": "Software Engineer II",
     "type": "Full-time",
-    "startDate": "Jun 2024",
+    "startDate": "Feb 2026",
     "endDate": "Present",
     "location": "Hyderabad, Telangana, India",
-    "description": "Solely worked on high-priority features impacting user engagement. Utilized Angular, C#, .NET, and AWS to design and deploy scalable solutions. Participated in Innovation Sprints to enhance product functionality."
+    "description": "Working on HubSpot–NetSuite integrations, implementing full CRUD functionality and improving user workflows by reducing manual operations. Contributing to migration of NetSuite integrations from SuiteBundle to SuiteApp, including handling large-scale custom record migrations. Improved backend performance by optimizing Node.js services and working on scalable asynchronous workflows using AWS SQS and Step Functions."
   },
   {
     "id": 2,
+    "company": "Celigo",
+    "role": "Software Engineer I",
+    "type": "Full-time",
+    "startDate": "Jun 2024",
+    "endDate": "Jan 2026",
+    "location": "Hyderabad, Telangana, India",
+    "description": "Developed and shipped production features for the CloudExtend platform used by enterprise customers. Implemented key features like Delete Associations to reduce manual effort and improve data consistency. Resolved critical customer-impacting issues by collaborating with external teams. Contributed to backend performance improvements by migrating services from C# to Node.js and worked on asynchronous processing workflows using AWS services. Also built an AI-powered SuiteQL feature enabling natural language query generation."
+  },
+  {
+    "id": 3,
     "company": "Celigo",
     "role": "Software Development Intern",
     "type": "Internship",
     "startDate": "Jan 2024",
     "endDate": "May 2024",
     "location": "Hyderabad, Telangana, India",
-    "description": "Developed an Email add-in with ERP software, enhancing communication efficiency. Collaborated with team to integrate new features and conducted testing to maintain high-quality code standards."
+    "description": "Developed an Outlook email add-in integrated with NetSuite workflows, enabling ERP actions directly from email. Built frontend components and backend APIs, and improved logging and debugging processes to streamline development and testing."
   }
 ]

@@ -1,0 +1,2 @@
+# Keep PDFs as binary so Git never normalizes line endings or re-encodes streams
+*.pdf binary

@@ -6,7 +6,6 @@ import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
 import { Github, ExternalLink } from "lucide-react"
 import Link from "next/link"
-import Image from "next/image"
 import projectsData from "@/data/projects.json"
 import { cn } from "@/lib/utils"
 
@@ -29,13 +28,13 @@ export function Projects() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 auto-rows-[minmax(300px,auto)]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:items-stretch">
           {projectsData.map((project, index) => (
             <motion.div
               key={project.id}
               className={cn(
                 "group relative rounded-xl",
-                index === 0 ? "md:col-span-2 md:row-span-2" : "md:col-span-1 md:row-span-1"
+                index === 0 ? "md:col-span-3" : "md:col-span-1"
               )}
               initial={{ opacity: 0, scale: 0.95 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -45,12 +44,19 @@ export function Projects() {
               {/* Gradient Border Wrapper */}
               <div className="absolute -inset-0.5 bg-gradient-to-r from-primary to-accent rounded-xl opacity-20 group-hover:opacity-100 blur transition duration-1000 group-hover:duration-200"></div>
               
-              <Card className="relative h-full flex flex-col overflow-hidden border-0 bg-card/80 backdrop-blur-sm rounded-xl shadow-xl">
+              <Card
+                className={cn(
+                  "relative flex flex-col overflow-hidden border-0 bg-card/80 backdrop-blur-sm rounded-xl shadow-xl",
+                  index > 0 && "h-full"
+                )}
+              >
                 {/* Image Section */}
-                <div className={cn(
-                  "relative overflow-hidden",
-                  index === 0 ? "h-64 md:h-96" : "h-48"
-                )}>
+                <div
+                  className={cn(
+                    "relative overflow-hidden shrink-0",
+                    project.image ? (index === 0 ? "h-52 md:h-56" : "h-48") : "h-40"
+                  )}
+                >
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/10 to-accent/10 group-hover:scale-105 transition-transform duration-500" />
                     {/* Mock visual for placeholder */}
                     <div className="absolute inset-0 flex items-center justify-center text-primary/20 font-bold text-6xl select-none">
@@ -72,7 +78,12 @@ export function Projects() {
                   </CardDescription>
                 </CardHeader>
 
-                <CardContent className="flex-grow">
+                <CardContent
+                  className={cn(
+                    "pb-4",
+                    index > 0 && "flex-1"
+                  )}
+                >
                   <div className="flex flex-wrap gap-2">
                     {project.techStack.map((tech) => (
                       <Badge key={tech} variant="secondary" className="bg-secondary/50 hover:bg-secondary text-secondary-foreground border border-white/5">
@@ -82,20 +93,26 @@ export function Projects() {
                   </div>
                 </CardContent>
 
-                <CardFooter className="gap-4 pt-0">
-                  <Button variant="outline" size="sm" className="w-full rounded-full border-primary/20 hover:bg-primary/10 hover:text-primary" asChild>
-                    <Link href={project.github} target="_blank">
-                      <Github className="mr-2 h-4 w-4" />
-                      Code
-                    </Link>
-                  </Button>
-                  <Button size="sm" className="w-full rounded-full bg-gradient-to-r from-primary to-accent text-white border-0 hover:opacity-90" asChild>
-                    <Link href={project.demo} target="_blank">
-                      <ExternalLink className="mr-2 h-4 w-4" />
-                      Demo
-                    </Link>
-                  </Button>
-                </CardFooter>
+                {(project.github || project.demo) && (
+                  <CardFooter className={cn("gap-4 pt-0", index > 0 && "mt-auto")}>
+                    {project.github ? (
+                      <Button variant="outline" size="sm" className="w-full rounded-full border-primary/20 hover:bg-primary/10 hover:text-primary" asChild>
+                        <Link href={project.github} target="_blank">
+                          <Github className="mr-2 h-4 w-4" />
+                          Code
+                        </Link>
+                      </Button>
+                    ) : null}
+                    {project.demo ? (
+                      <Button size="sm" className="w-full rounded-full bg-gradient-to-r from-primary to-accent text-white border-0 hover:opacity-90" asChild>
+                        <Link href={project.demo} target="_blank">
+                          <ExternalLink className="mr-2 h-4 w-4" />
+                          Demo
+                        </Link>
+                      </Button>
+                    ) : null}
+                  </CardFooter>
+                )}
               </Card>
             </motion.div>
           ))}
