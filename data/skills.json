@@ -1,0 +1,6 @@
+{
+  "frontend": ["Angular", "React", "TypeScript", "JavaScript", "HTML", "CSS"],
+  "backend": ["C#", ".NET", "Node.js", "Express", "Python", "Flask"],
+  "database": ["MongoDB", "MySQL", "SuiteQL"],
+  "tools": ["AWS", "Jest", "Git", "Chrome APIs", "BeautifulSoup"]
+}

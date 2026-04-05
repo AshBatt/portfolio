@@ -1,0 +1,22 @@
+[
+  {
+    "id": 1,
+    "company": "Celigo",
+    "role": "Software Engineer I",
+    "type": "Full-time",
+    "startDate": "Jun 2024",
+    "endDate": "Present",
+    "location": "Hyderabad, Telangana, India",
+    "description": "Solely worked on high-priority features impacting user engagement. Utilized Angular, C#, .NET, and AWS to design and deploy scalable solutions. Participated in Innovation Sprints to enhance product functionality."
+  },
+  {
+    "id": 2,
+    "company": "Celigo",
+    "role": "Software Development Intern",
+    "type": "Internship",
+    "startDate": "Jan 2024",
+    "endDate": "May 2024",
+    "location": "Hyderabad, Telangana, India",
+    "description": "Developed an Email add-in with ERP software, enhancing communication efficiency. Collaborated with team to integrate new features and conducted testing to maintain high-quality code standards."
+  }
+]
