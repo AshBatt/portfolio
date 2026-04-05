@@ -1,0 +1,2 @@
+# Binary PDFs must never be opened in the editor (saving as text corrupts them).
+public/resume.pdf
